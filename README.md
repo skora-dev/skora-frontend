@@ -34,3 +34,19 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## 🧩 Tech Stack
+
+| Technology                       | Purpose                                             |
+| -------------------------------- | --------------------------------------------------- |
+| **Next.js 15 (App Router)**      | Framework for SSR/SSG/CSR hybrid apps               |
+| **TypeScript**                   | Static typing for better DX and safety              |
+| **Redux Toolkit**                | Centralized state management (auth, UI state, etc.) |
+| **React Redux**                  | Bindings to connect Redux store with React          |
+| **TanStack Query (React Query)** | Server-state fetching, caching, and refetching      |
+| **React Hook Form**              | Lightweight form management and validation          |
+| **Yup**                          | Schema-based validation for forms                   |
+| ** Motion**                      | Smooth and modern animations                        |
+| **Axios**                        | HTTP client for API requests                        |
+| **react-hot-toast**              | Elegant notifications and toasts                    |
+| **Tailwind CSS**                 | Utility-first styling framework                     |
