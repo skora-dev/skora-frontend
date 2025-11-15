@@ -10,3 +10,9 @@ export interface CustomButtonProps {
   rightIcon?: ReactNode;
   disabled?: boolean;
 }
+export interface CustomSUccessProps {
+  message: string;
+  pathT0: string;
+  className?: string;
+  nextButton: string;
+}
