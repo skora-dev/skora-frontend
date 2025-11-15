@@ -1,5 +1,7 @@
+import RegisterPage from "@/features/auth/register/RegisterPage";
+
 const page = () => {
-  return <div>page</div>;
+  return <RegisterPage />;
 };
 
 export default page;

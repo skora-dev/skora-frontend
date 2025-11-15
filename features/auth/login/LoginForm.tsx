@@ -5,6 +5,7 @@ import { loginSchema } from "../components/validation";
 import { LoginFormInputs } from "../types";
 import CustomInput from "@/components/input/CustomInput";
 import CustomButton from "@/components/button/CustomButton";
+import Link from "next/link";
 
 const LoginForm = () => {
   const {
@@ -58,12 +59,12 @@ const LoginForm = () => {
         {/* Footer */}
         <p className="text-center text-sm text-gray-500">
           Don’t have an account?{" "}
-          <a
-            href="#"
+          <Link
+            href="/register"
             className="text-blue-600 hover:text-blue-700 font-medium transition"
           >
             Sign up
-          </a>
+          </Link>
         </p>
       </div>
     </section>
