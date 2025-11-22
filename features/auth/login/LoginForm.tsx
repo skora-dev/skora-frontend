@@ -6,8 +6,11 @@ import { LoginFormInputs } from "../types";
 import CustomInput from "@/components/input/CustomInput";
 import CustomButton from "@/components/button/CustomButton";
 import Link from "next/link";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -17,6 +20,8 @@ const LoginForm = () => {
   });
   const onSubmit = (data: LoginFormInputs) => {
     console.log("Login Data:", data);
+    toast.success("Login successfully");
+    router.push("/complete-profile");
   };
   return (
     <section className=" flex h-full items-center justify-center px-4">

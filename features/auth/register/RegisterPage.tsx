@@ -5,11 +5,11 @@ import CustomInput from "@/components/input/CustomInput";
 import CustomButton from "@/components/button/CustomButton";
 import { registerSchema } from "../components/validation";
 import { RegisterFormInputs } from "../types";
-import { useState } from "react";
 import CustomSuccess from "@/components/modals/success/CustomSuccess";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 const RegisterPage = () => {
-  const [isSuccess, setIsSuccess] = useState(false);
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -18,7 +18,7 @@ const RegisterPage = () => {
     resolver: yupResolver(registerSchema),
   });
   const onSubmit = (data: RegisterFormInputs) => {
-    setIsSuccess(true);
+    router.push("/email-verification");
   };
 
   return (
@@ -97,13 +97,6 @@ const RegisterPage = () => {
           </Link>
         </p>
       </section>
-      {isSuccess && (
-        <CustomSuccess
-          message="You have successfully register an account"
-          nextButton="Proceed to Login"
-          pathT0="/login"
-        />
-      )}
     </section>
   );
 };
