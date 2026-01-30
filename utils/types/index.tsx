@@ -16,3 +16,8 @@ export interface CustomSUccessProps {
   className?: string;
   nextButton: string;
 }
+export interface LogoIconType {
+  width?: number;
+  height?: number;
+  className?: string;
+}
