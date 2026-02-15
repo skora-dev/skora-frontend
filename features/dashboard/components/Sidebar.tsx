@@ -7,17 +7,18 @@ import SidebarProfile from "./SidebarProfile";
 const Sidebar = () => {
   const pathname = usePathname();
   return (
-    <aside className="px-4 w-full max-w-56 shadow  overflow-y-auto py-4 justify-between flex flex-col ">
-      <section className="mt-4   flex flex-col justify-between gap-10">
+    <aside className="px-4 w-full max-w-72  shadow  overflow-y-auto py-4 justify-between  flex-col ">
+      <section className="mt-4  flex flex-col justify-between gap-10">
         <CompanyLogo />
         <nav className="space-y-2 w-full  ">
           {menuItems.map((item) => {
-            const isActive = pathname === `/${item.label.toLowerCase()}`;
+            const isActive =
+              pathname === `/dashboard/${item.label.toLowerCase()}`;
             return (
               <SidebarCard
                 icon={item.icon}
                 label={item.label}
-                path={`/${item.label.toLowerCase()}`}
+                path={`/dashboard/${item.label.toLowerCase()}`}
                 key={item.label}
                 isActive={isActive}
               />

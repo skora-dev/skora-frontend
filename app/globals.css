@@ -14,3 +14,8 @@ input[type="number"] {
   -moz-appearance: textfield;
   appearance: textfield;
 }
+@theme {
+  --color-primary: #2563eb;
+  --color-secondary: #1a1a1a;
+  --color-tertiary: #666666;
+}
