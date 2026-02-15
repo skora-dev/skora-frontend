@@ -6,8 +6,11 @@ import { LoginFormInputs } from "../types";
 import CustomInput from "@/components/input/CustomInput";
 import CustomButton from "@/components/button/CustomButton";
 import Link from "next/link";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -17,23 +20,29 @@ const LoginForm = () => {
   });
   const onSubmit = (data: LoginFormInputs) => {
     console.log("Login Data:", data);
+    toast.success("Login successfully");
+    router.push("/dashboard");
   };
   return (
     <section className=" flex h-full items-center justify-center px-4">
       <div className="w-full max-w-md p-8 space-y-6">
         {/* Header */}
         <div className="text-center">
-          <h2 className="text-3xl font-semibold text-gray-800">Skora</h2>
-          <p className="text-gray-500 mt-1">Welcome back 👋</p>
+          <h2 className="text-3xl font-semibold text-secondary">
+            Welcome Back
+          </h2>
+          <p className="text-tertiary text-sm">
+            Manage your school’s academic records in one place.
+          </p>
         </div>
 
         {/* Form */}
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <CustomInput
-            label="Email"
+            label="School Email"
             name="email"
             type="email"
-            placeholder="Enter your email"
+            placeholder="Enter your school email"
             register={register}
             error={errors.email}
           />
