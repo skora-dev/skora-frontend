@@ -18,7 +18,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
   return (
     <div className="w-full">
       {label && (
-        <label className="block mb-1 text-sm font-medium text-gray-700">
+        <label className="block mb-1 text-secondary text-sm font-medium ">
           {label}
         </label>
       )}

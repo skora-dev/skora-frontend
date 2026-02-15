@@ -21,8 +21,8 @@ const CustomButton = ({
       onClick={onClick}
       disabled={isLoading || disabled}
       className={cn(
-        "flex items-center justify-center gap-2 bg-amber-500 w-full max-w-md text-white hover:bg-amber-600 disabled:bg-gray-400",
-        className
+        "flex items-center justify-center gap-2 bg-primary w-full cursor-pointer max-w-md text-white hover:bg-primary/90 disabled:bg-gray-400",
+        className,
       )}
       {...props}
     >

@@ -5,8 +5,7 @@ export type LoginFormInputs = {
   password: string;
 };
 export interface RegisterFormInputs {
-  firstName: string;
-  lastName: string;
+  schoolName: string;
   email: string;
   phoneNumber: string;
   password: string;
