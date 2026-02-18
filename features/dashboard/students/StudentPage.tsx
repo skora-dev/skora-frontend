@@ -1,49 +1,32 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { Student } from "./types/studentTypes";
 import CreateStudentPage from "./CreateStudentPage";
-
-const MOCK_STUDENTS: Student[] = [
-  {
-    id: 1,
-    name: "Alex Rivera",
-    className: "Grade 1",
-    subjectsCount: 6,
-    age: 15,
-  },
-  { id: 2, name: "Sam Smith", className: "Grade 2", subjectsCount: 5, age: 17 },
-  {
-    id: 3,
-    name: "Jordan Lee",
-    className: "Grade 3",
-    subjectsCount: 7,
-    age: 16,
-  },
-  { id: 4, name: "Taylor Wong", className: "11C", subjectsCount: 6, age: 16 },
-];
+import { Plus } from "lucide-react";
+import { mockStudents } from "./components/data";
 
 export default function StudentsPage() {
   const [filterClass, setFilterClass] = useState<string>("All");
   const [showAddStudent, setShowAddStudent] = useState(false);
   const filteredStudents =
     filterClass === "All"
-      ? MOCK_STUDENTS
-      : MOCK_STUDENTS.filter((s) => s.className === filterClass);
+      ? mockStudents
+      : mockStudents.filter((s) => s.class === filterClass);
 
   // Get unique classes for the dropdown
   const classes = ["All", "Grade 1", "Grade 2", "Grade 3"];
 
   return (
-    <div className="p-6  mx-auto">
+    <section className="p-6 overflow-y-auto no-scrollbar h-[90vh] mx-auto">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold">Student Directory</h1>
         <button
           onClick={() => setShowAddStudent(true)}
-          className="bg-primary cursor-pointer text-white px-4 py-3 rounded-2xl hover:bg-primary/80"
+          className="bg-primary cursor-pointer text-white px-4 py-3 rounded-2xl flex items-center hover:bg-primary/80"
         >
-          + Add New Student
+          <Plus />
+          <span className="hidden md:block"> Add New Student</span>
         </button>
       </div>
 
@@ -83,7 +66,7 @@ export default function StudentsPage() {
           </thead>
           <tbody>
             {filteredStudents.map(
-              ({ name, className, subjectsCount, age, id }, index) => (
+              ({ name, class: sclass, subjects, age, id }, index) => (
                 <tr
                   key={id}
                   className={`hover:bg-gray-50  transition ${index + 1 == filteredStudents.length ? "border-none" : "border-b border-gray-100"}`}
@@ -96,8 +79,8 @@ export default function StudentsPage() {
                       {name}
                     </Link>
                   </td>
-                  <td className="p-4">{className}</td>
-                  <td className="p-4 text-center">{subjectsCount}</td>
+                  <td className="p-4">{sclass}</td>
+                  <td className="p-4 text-center">{subjects.length}</td>
                   <td className="p-4 text-center">{age}</td>
                 </tr>
               ),
@@ -114,6 +97,6 @@ export default function StudentsPage() {
       {showAddStudent && (
         <CreateStudentPage cancel={() => setShowAddStudent(false)} />
       )}
-    </div>
+    </section>
   );
 }

@@ -7,7 +7,7 @@ import SidebarProfile from "./SidebarProfile";
 const Sidebar = () => {
   const pathname = usePathname();
   return (
-    <aside className="px-4 w-full max-w-72  shadow  overflow-y-auto py-4 justify-between  flex-col ">
+    <aside className="px-4 w-full max-w-72  shadow  overflow-y-auto no-scrollbar py-4 justify-between  flex-col ">
       <section className="mt-4  flex flex-col justify-between gap-10">
         <CompanyLogo />
         <nav className="space-y-2 w-full  ">

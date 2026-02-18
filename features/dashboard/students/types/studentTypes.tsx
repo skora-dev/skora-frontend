@@ -9,3 +9,28 @@ export interface Student {
 export interface CreateStudentPageProps {
   cancel: () => void;
 }
+export interface StudentDetailsCardProps {
+  label: string;
+  value: string | number;
+  className?: string;
+}
+export type SubjectResult = {
+  subject: string;
+  caScore: number; // Continuous Assessment (out of 40)
+  examScore: number; // Exam (out of 60)
+  overall: number; // caScore + examScore
+  passMark: number; // usually 50
+  status: string;
+};
+
+export type StudentResult = {
+  id: number;
+  name: string;
+  class: string;
+  age: number;
+
+  subjects: SubjectResult[];
+};
+export interface ReportTableProps {
+  data: SubjectResult[];
+}

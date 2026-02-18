@@ -31,3 +31,25 @@ export const classes = [
   "Grade 5",
   "Grade 6",
 ];
+export const editSubjectSchema = yup.object({
+  subject: yup.string().required("Subject is required"),
+  caScore: yup
+    .number()
+    .typeError("CA must be a number")
+    .min(0)
+    .max(40, "CA cannot exceed 40")
+    .required("CA score is required"),
+  examScore: yup
+    .number()
+    .typeError("Exam must be a number")
+    .min(0)
+    .max(60, "Exam cannot exceed 60")
+    .required("Exam score is required"),
+});
+
+export type EditSubjectFormValues = yup.InferType<typeof editSubjectSchema>;
+export interface EditSubjectProps {
+  defaultValues?: EditSubjectFormValues;
+  onClose: () => void;
+  onSubmitData: (data: EditSubjectFormValues) => void;
+}
