@@ -31,7 +31,7 @@ export default function CreateStudentPage({ cancel }: CreateStudentPageProps) {
 
   return (
     <section className="fixed inset-0 flex justify-center items-center bg-black/40">
-      <div className="p-8 w-full max-w-lg mx-auto bg-white shadow rounded-2xl">
+      <div className="p-8 w-[95%] max-w-lg max-h-[95vh] mx-auto bg-white shadow rounded-2xl">
         <h1 className="text-3xl font-bold mb-6">Add New Student</h1>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4  ">

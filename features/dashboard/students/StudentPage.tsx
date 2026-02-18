@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Student } from "./types/studentTypes";
 import CreateStudentPage from "./CreateStudentPage";
+import { Plus } from "lucide-react";
 
 const MOCK_STUDENTS: Student[] = [
   {
@@ -22,6 +23,20 @@ const MOCK_STUDENTS: Student[] = [
     age: 16,
   },
   { id: 4, name: "Taylor Wong", className: "11C", subjectsCount: 6, age: 16 },
+  {
+    id: 5,
+    name: "Jordan Lee",
+    className: "Grade 3",
+    subjectsCount: 7,
+    age: 16,
+  },
+  {
+    id: 6,
+    name: "Jordan Lee",
+    className: "Grade 3",
+    subjectsCount: 7,
+    age: 16,
+  },
 ];
 
 export default function StudentsPage() {
@@ -36,14 +51,15 @@ export default function StudentsPage() {
   const classes = ["All", "Grade 1", "Grade 2", "Grade 3"];
 
   return (
-    <div className="p-6  mx-auto">
+    <section className="p-6 overflow-y-auto no-scrollbar h-[90vh] mx-auto">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold">Student Directory</h1>
         <button
           onClick={() => setShowAddStudent(true)}
-          className="bg-primary cursor-pointer text-white px-4 py-3 rounded-2xl hover:bg-primary/80"
+          className="bg-primary cursor-pointer text-white px-4 py-3 rounded-2xl flex items-center hover:bg-primary/80"
         >
-          + Add New Student
+          <Plus />
+          <span className="hidden md:block"> Add New Student</span>
         </button>
       </div>
 
@@ -114,6 +130,6 @@ export default function StudentsPage() {
       {showAddStudent && (
         <CreateStudentPage cancel={() => setShowAddStudent(false)} />
       )}
-    </div>
+    </section>
   );
 }

@@ -1,5 +1,7 @@
+import StudentDetails from "@/features/dashboard/students/StudentDetails";
+
 const page = () => {
-  return <div>page</div>;
+  return <StudentDetails />;
 };
 
 export default page;

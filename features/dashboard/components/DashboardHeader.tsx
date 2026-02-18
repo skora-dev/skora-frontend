@@ -8,7 +8,7 @@ import Sidebar from "./Sidebar";
 const DashboardHeader = () => {
   const [showSidebar, setShowSidebar] = useState(false);
   return (
-    <div className="p-3 px-6 flex justify-between items-center  w-full shadow">
+    <div className="p-3 px-6 flex justify-between shadow items-center   w-full ">
       {/* replace with sch details  */}
       <div className="flex gap-1 items-baseline">
         <h3 className="text-secondary">Skora International School </h3>
