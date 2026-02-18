@@ -54,7 +54,7 @@ const EditSubj = ({
               error={errors.examScore}
             />
 
-            <div className="flex mt-6 justify-end gap-3 mt-4">
+            <div className="flex mt-6 justify-end gap-3">
               <CustomButton
                 title="Cancel"
                 onClick={onClose}

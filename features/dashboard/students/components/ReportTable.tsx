@@ -4,8 +4,11 @@ import { ReportTableProps, SubjectResult } from "../types/studentTypes";
 import { Pencil, Trash2 } from "lucide-react";
 import { useState } from "react";
 import EditSubj from "./EditSubj";
+import EmptyRecord from "./EmptyRecord";
+import CustomButton from "@/components/button/CustomButton";
 const ReportTable = ({ data }: ReportTableProps) => {
   const [showEdit, setShowEdit] = useState(false);
+  const [showAdd, setShowAdd] = useState(false);
   const [selectedSubject, setSelectedSubject] = useState<SubjectResult | null>(
     null,
   );
@@ -73,7 +76,31 @@ const ReportTable = ({ data }: ReportTableProps) => {
   ];
   return (
     <article>
-      <Table dataSource={data} columns={columns} />
+      {data.length > 0 ? (
+        <>
+          <Table
+            dataSource={data}
+            columns={columns}
+            pagination={false}
+            className="mb-10"
+          />
+          <div className="flex justify-end px-6">
+            <CustomButton
+              title="Add Subject"
+              className="w-30"
+              onClick={() => setShowAdd(true)}
+            />
+          </div>
+        </>
+      ) : (
+        <EmptyRecord setShowAdd={setShowAdd} />
+      )}
+      {showAdd && (
+        <EditSubj
+          onClose={() => setShowAdd(false)}
+          onSubmitData={() => console.log("l")}
+        />
+      )}
       {showEdit && selectedSubject && (
         <EditSubj
           defaultValues={selectedSubject}

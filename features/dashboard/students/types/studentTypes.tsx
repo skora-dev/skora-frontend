@@ -20,7 +20,7 @@ export type SubjectResult = {
   examScore: number; // Exam (out of 60)
   overall: number; // caScore + examScore
   passMark: number; // usually 50
-  status: "Pass" | "Fail";
+  status: string;
 };
 
 export type StudentResult = {

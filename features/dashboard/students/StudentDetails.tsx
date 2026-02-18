@@ -1,14 +1,19 @@
+"use client";
 import { ArrowLeft } from "lucide-react";
 import StudentDetailsCard from "./components/StudentDetailsCard";
 import ReportTable from "./components/ReportTable";
 import { mockStudents } from "./components/data";
+import { useRouter } from "next/navigation";
 
-const StudentDetails = () => {
-  const student = mockStudents[0];
+const StudentDetails = ({ id }: { id: string }) => {
+  const student = mockStudents[Number(id) - 1];
+  console.log(student);
+  const router = useRouter();
+
   return (
     <section className="p-6 h-[90vh] overflow-y-auto no-scrollbar">
       <div className="flex items-center gap-6">
-        <ArrowLeft />
+        <ArrowLeft onClick={() => router.back()} className="cursor-pointer" />
         <h1 className="text-2xl text-primary font-semibold">Student Details</h1>
       </div>
       <article className="mt-6 grid grid-cols-2 gap-6 border p-4 border-gray-100 shadow rounded-xl">
