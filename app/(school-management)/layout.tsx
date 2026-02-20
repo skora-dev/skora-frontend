@@ -13,7 +13,7 @@ export default function DashboardLayout({
       </div>
       <div className="w-full no-scrollbar">
         <DashboardHeader />
-        {children}
+        <div className="h-[95vh] no-scrollbar overflow-y-auto">{children}</div>
       </div>
     </main>
   );

@@ -27,6 +27,31 @@ input[type="number"] {
 }
 @theme {
   --color-primary: #2563eb;
+  --color-primary-50: #e6f7f7;
+  --color-primary-100: #b3e9e8;
+  --color-primary-200: #80dad9;
+  --color-primary-300: #4dccca;
+  --color-primary-400: #1abebb;
+  --color-primary-500: #0f9d99;
+  --color-primary-600: #0c7d7a;
+  --color-primary-700: #095e5b;
+  --color-primary-800: #063e3c;
+  --color-primary-900: #031f1e;
   --color-secondary: #1a1a1a;
+  --color-secondary-50: #fff8e6;
+  --color-secondary-100: #ffedb3;
+  --color-secondary-200: #ffe180;
+  --color-secondary-300: #ffd64d;
+  --color-secondary-400: #ffcb1a;
+  --color-secondary-500: #f0b000;
+  --color-secondary-600: #c08d00;
+  --color-secondary-700: #906a00;
+  --color-secondary-800: #604700;
+  --color-secondary-900: #302300;
   --color-tertiary: #666666;
+}
+@layer components {
+  .card {
+    @apply bg-white rounded-xl p-6 border border-neutral-100 transition-all duration-200;
+  }
 }

@@ -8,9 +8,12 @@ import CustomButton from "@/components/button/CustomButton";
 import Link from "next/link";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { login, User } from "@/store/slices/authSlice";
+import { useDispatch } from "react-redux";
 
 const LoginForm = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -21,7 +24,10 @@ const LoginForm = () => {
   const onSubmit = (data: LoginFormInputs) => {
     console.log("Login Data:", data);
     toast.success("Login successfully");
-    router.push("/dashboard");
+    router.push("/management/dashboard");
+    const payload: User = { ...data, role: "management", id: "", name: "" };
+    dispatch(login(payload));
+    console.log(payload);
   };
   return (
     <section className=" flex h-full items-center justify-center px-4">
